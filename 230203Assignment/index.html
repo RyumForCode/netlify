@@ -4,9 +4,124 @@
         <meta charset = 'UTF-8'>
         <title>Index page</title>
         <style type="text/css">
+            @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+            * {
+                font-size : 16px;
+                font-family : 'Pretendard';
+            }
+
+            h1 {
+                text-align: center;
+                margin : 0, auto;
+                font-size : 3rem;
+                font-weight : 900;
+                color : #ff3c3c;
+            }
+            
+            #container {
+                margin : auto;
+                margin-top : 10vh;
+                width : 25%;
+            }
+
             .lineBreaker {
                 display : block;
+                margin-top : 0.5rem;
             }
+
+            .textInput {
+                margin-top : 0.25rem;
+                width : 100%;
+                height : 2rem;
+                border-radius : 0.25rem;
+                border : 2px solid rgba(0, 0, 0, 0.15);
+                background-color : white;
+                box-shadow : 0px, 0px, 16px, rgba(0, 0, 0, 0.2);
+                padding-left : 0.5rem;
+                transition : 200ms;
+            }
+
+            .textInput:focus {
+                outline : none !important;
+                border : 2px solid #ff3c3c;
+            }
+
+            .textInput::placeholder {
+                color : rgba(0, 0, 0, 0.15);
+                font-weight : 400;
+            }
+
+            label {
+                margin-top : 0.5rem;
+                font-size : 1rem;
+                font-weight : 300;
+            }
+
+            input[type = radio] {
+                display : none;
+            }
+
+            input[type = radio] + label {
+                font-weight : 700;
+                color : rgba(0, 0, 0, 0.15);
+                border-radius : 0.25rem;
+                display: inline-block;
+                cursor: pointer;
+                height: 1.5rem;
+                width: 6rem;
+                border: 2px solid rgba(0, 0, 0, 0.15);
+                line-height: 24px;
+                text-align: center;
+                transition : 200ms;
+            }
+
+            input[type = radio]:checked + label{
+                background-color: #ff3c3c;
+                border: 2px solid #ff3c3c;;
+                color: #fff;
+            }
+
+            input[type = checkbox] {
+                display : none;
+            }
+
+            input[type = checkbox] + label {
+                font-weight : 700;
+                color : rgba(0, 0, 0, 0.15);
+                border-radius : 0.25rem;
+                display: inline-block;
+                cursor: pointer;
+                height: 1.5rem;
+                width: 6rem;
+                border: 2px solid rgba(0, 0, 0, 0.15);
+                line-height: 24px;
+                text-align: center;
+                transition : 200ms;
+            }
+
+            input[type = checkbox]:checked + label {
+                background-color: #ff3c3c;
+                border: 2px solid #ff3c3c;;
+                color: #fff;
+            }
+
+            input[type = submit] {
+                background-color : #ff3c3c;
+                border : 2px solid #ff3c3c;
+                color : white;
+                font-weight : 700;
+                border-radius : 0.25rem;
+                width : 100%;
+                height : 2.5rem;
+                transition : 200ms;
+            }
+
+            input[type = submit]:hover {
+                background-color : #ff7878;
+                border : 2px solid #ff7878;
+            }
+
         </style>
         <script defer>
             const onClick = e => {
@@ -15,34 +130,31 @@
         </script>
     </head>
     <body>
-        <div>
+        <div id = 'container'>
+            <h1>Input your data</h1>
             <form onsubmit = 'onClick()'>
-                <label class = 'lineBreaker'>First name : </label>
-                <input type = 'text' name = 'firstName' required>
-                <label class = 'lineBreaker'>Last name : </label>
-                <input type = 'text' name = 'lastName' required>
-                <label class = 'lineBreaker'>Email : </label>
-                <input type = 'text' name = 'Email' required>
-                <label class = 'lineBreaker'>Gender : 
-                    <input type = 'radio' name = 'radio' required><label>Male</label>
-                    <input type = 'radio' name = 'radio' required><label>Female</label>
-                </label>
-                <label class = 'lineBreaker'>Favorite : 
-                    <label><input type = 'checkbox' name = 'checkbox' value = 'html'>HTML</label>
-                    <label><input type = 'checkbox' name = 'checkbox' value = 'java'>JAVA</label>
-                    <label><input type = 'checkbox' name = 'checkbox' value = 'javascript'>JavaScript</label>
-                </label>
-                <label class = 'lineBreaker'>Browser : 
-                    <select name = 'browser'>
-                        <option value = 'chrome'>크롬</option>
-                        <option value = 'safari'>사파리</option>
-                        <option value = 'edge'>엣지</option>
-                    </select>
-                </label>
-                <label class = 'lineBreaker'>Birthday : 
-                    <input type = 'date' name = 'birthday'>
-                </label>
-                <input type = 'submit' value = '제출'>
+                <label class = 'lineBreaker'>First name</label>
+                <input type = 'text' name = 'firstName' class = 'textInput' placeholder = 'Input your firstname.' required>
+                <label class = 'lineBreaker'>Last name</label>
+                <input type = 'text' name = 'lastName' class = 'textInput' placeholder = 'Input your lastname.' required>
+                <label class = 'lineBreaker'>Email</label>
+                <input type = 'email' name = 'Email' class = 'textInput' placeholder = 'Input your E-mail.' required>
+                <label class = 'lineBreaker'>Gender</label>
+                <input type = 'radio' name = 'radio' id = 'male' required><label for = 'male'>Male</label>
+                <input type = 'radio' name = 'radio' id = 'female' required><label for = 'female'>Female</label>
+                <label class = 'lineBreaker'>Favorite</label>
+                <input type = 'checkbox' name = 'checkbox' value = 'html' id = 'html'><label for = 'html'>HTML</label>
+                <input type = 'checkbox' name = 'checkbox' value = 'java' id = 'java'><label for = 'java'>JAVA</label>
+                <input type = 'checkbox' name = 'checkbox' value = 'javascript' id = 'javascript'><label for = 'javascript'>JavaScript</label>
+                <label class = 'lineBreaker'>Browser</label>
+                <select name = 'browser'>
+                    <option value = 'chrome'>크롬</option>
+                    <option value = 'safari'>사파리</option>
+                    <option value = 'edge'>엣지</option>
+                </select>
+                <label class = 'lineBreaker'>Birthday</label>
+                <input type = 'date' name = 'birthday'>
+                <input class = 'lineBreaker' type = 'submit' value = '제출'>
             </form>
         </div>
     </body>
