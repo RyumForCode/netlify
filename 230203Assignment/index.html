@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = 'UTF-8'>
+        <title>Index page</title>
+        <style type="text/css">
+            .lineBreaker {
+                display : block;
+            }
+        </style>
+        <script defer>
+            const onClick = e => {
+                return alert('제출 완료!');
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <form onsubmit = 'onClick()'>
+                <label class = 'lineBreaker'>First name : </label>
+                <input type = 'text' name = 'firstName' required>
+                <label class = 'lineBreaker'>Last name : </label>
+                <input type = 'text' name = 'lastName' required>
+                <label class = 'lineBreaker'>Email : </label>
+                <input type = 'text' name = 'Email' required>
+                <label class = 'lineBreaker'>Gender : 
+                    <input type = 'radio' name = 'radio' required><label>Male</label>
+                    <input type = 'radio' name = 'radio' required><label>Female</label>
+                </label>
+                <label class = 'lineBreaker'>Favorite : 
+                    <label><input type = 'checkbox' name = 'checkbox' value = 'html'>HTML</label>
+                    <label><input type = 'checkbox' name = 'checkbox' value = 'java'>JAVA</label>
+                    <label><input type = 'checkbox' name = 'checkbox' value = 'javascript'>JavaScript</label>
+                </label>
+                <label class = 'lineBreaker'>Browser : 
+                    <select name = 'browser'>
+                        <option value = 'chrome'>크롬</option>
+                        <option value = 'safari'>사파리</option>
+                        <option value = 'edge'>엣지</option>
+                    </select>
+                </label>
+                <label class = 'lineBreaker'>Birthday : 
+                    <input type = 'date' name = 'birthday'>
+                </label>
+                <input type = 'submit' value = '제출'>
+            </form>
+        </div>
+    </body>
+</html>
